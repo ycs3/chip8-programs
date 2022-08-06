@@ -1,0 +1,195 @@
+  00e0
+  1.main
+.loop:
+  f00a
+  1.loop
+.main:
+  ff0a ; write key to VF
+  ;6f00
+  6d01
+  6e01
+.write_regF: ; write LSB of VF in (VD, VE)
+  ; uses V0
+  600f ; V0 = 0x0F
+  80f2 ; V0 = V0(0x0F) and VF
+  ;4000
+  ;1.case0
+  4001
+  1.case1
+  4002
+  1.case2
+  4003
+  1.case3
+  4004
+  1.case4
+  4005
+  1.case5
+  4006
+  1.case6
+  4007
+  1.case7
+  4008
+  1.case8
+  4009
+  1.case9
+  400a
+  1.caseA
+  400b
+  1.caseB
+  400c
+  1.caseC
+  400d
+  1.caseD
+  400e
+  1.caseE
+  400f
+  1.caseF
+  1.case0
+.case0:
+  a.hex0
+  1.hdraw
+.case1:
+  a.hex1
+  1.hdraw
+.case2:
+  a.hex2
+  1.hdraw
+.case3:
+  a.hex3
+  1.hdraw
+.case4:
+  a.hex4
+  1.hdraw
+.case5:
+  a.hex5
+  1.hdraw
+.case6:
+  a.hex6
+  1.hdraw
+.case7:
+  a.hex7
+  1.hdraw
+.case8:
+  a.hex8
+  1.hdraw
+.case9:
+  a.hex9
+  1.hdraw
+.caseA:
+  a.hexA
+  1.hdraw
+.caseB:
+  a.hexB
+  1.hdraw
+.caseC:
+  a.hexC
+  1.hdraw
+.caseD:
+  a.hexD
+  1.hdraw
+.caseE:
+  a.hexE
+  1.hdraw
+.caseF:
+  a.hexF
+  1.hdraw
+.hdraw:
+  00e0
+  dde5
+  1.main
+.hex0:
+  'f0
+  '90
+  '90
+  '90
+  'f0
+.hex1:
+  '20
+  '60
+  '20
+  '20
+  '70
+.hex2:
+  'f0
+  '10
+  'f0
+  '80
+  'f0
+.hex3:
+  'f0
+  '10
+  'f0
+  '10
+  'f0
+.hex4:
+  '90
+  '90
+  'f0
+  '10
+  '10
+.hex5:
+  'f0
+  '80
+  'f0
+  '10
+  'f0
+.hex6:
+  'f0
+  '80
+  'f0
+  '90
+  'f0
+.hex7:
+  'f0
+  '10
+  '20
+  '40
+  '40
+.hex8:
+  'f0
+  '90
+  'f0
+  '90
+  'f0
+.hex9:
+  'f0
+  '90
+  'f0
+  '10
+  'f0
+.hexA:
+  'f0
+  '90
+  'f0
+  '90
+  '90
+.hexB:
+  'e0
+  '90
+  'e0
+  '90
+  'e0
+.hexC:
+  'f0
+  '80
+  '80
+  '80
+  'f0
+.hexD:
+  'e0
+  '90
+  '90
+  '90
+  'e0
+.hexE:
+  'f0
+  '80
+  'f0
+  '80
+  'f0
+.hexF:
+  'f0
+  '80
+  'f0
+  '80
+  '80
