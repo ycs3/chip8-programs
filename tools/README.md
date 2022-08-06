@@ -22,7 +22,7 @@ $ python read_ch8.py programs/keypress_test.ch8
 ```
 Usage: python write_ch8.py [input filename] [-debug]
 ```
-Converts machine code written in text to binary. If given machine code (2 bytes per line in hex format) it will generate its binary counterpart. In addition, it provides the following convenience functionalities to assist in programming.
+Converts machine code written in text to binary. If given machine code (2 bytes per line in hex format) it will generate its binary counterpart. In addition, it provides the following quality of life functionality to assist in programming and code readability.
 ### Comments
 Anything after a semicolon (`;`) is ignored.
 ```
