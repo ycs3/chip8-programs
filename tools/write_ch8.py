@@ -62,7 +62,7 @@ def generate_machine_code(lines, debug=False):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print(f"Usage: python {sys.argv[0]} [input_filename] [-debug]")
+        print(f"Usage: python {sys.argv[0]} [input filename] [-debug]")
         exit()
 
     debug = False

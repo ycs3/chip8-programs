@@ -9,6 +9,9 @@ if __name__ == '__main__':
         contents = fp.read()
 
     for i in range(0, len(contents), 2):
-        print(f"0x{0x200+i:03x}: {contents[i]:02X} {contents[i+1]:02X}")
+        if len(contents) <= i+1:
+            print(f"0x{0x200+i:03x}: {contents[i]:02X} --")
+        else:
+            print(f"0x{0x200+i:03x}: {contents[i]:02X} {contents[i+1]:02X}")
     print(f"0x{0x200+i+2:03x} - end of file -")
 
