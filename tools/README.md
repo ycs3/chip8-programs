@@ -70,7 +70,7 @@ Referencing `+[hex]` or `-[hex]` values when designating memory addresses will b
 0x200:
   1+4  ; converted to 1204 (0x200 + 0x4)
   00e0
-  1-2  ; converted to 1202 (0x200 - 0x2)
+  1-2  ; converted to 1202 (0x204 - 0x2)
 ```
 Binary dump of the code above (`test3.txt`):
 ```
