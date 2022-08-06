@@ -12,7 +12,7 @@ def generate_machine_code(lines, debug=False):
                 refs[label] = addr
                 if debug:
                     print(f"* 0x{addr:03x} {label}")
-            else:
+            else: # absolute address
                 addr = int(line[:-1], 16)
         elif line.startswith("'"): # 1-byte hex data
             addr += 1
