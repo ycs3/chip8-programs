@@ -7,6 +7,7 @@ Each program has a readable machine code (`.txt`) and corresponding binary (`.ch
 
 Name  | Description
 ------------- | -------------
+programs/my_first_program | writes example text to screen
 programs/keypress_test | writes character to display corresponding to keypress
 
 
