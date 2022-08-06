@@ -1,0 +1,32 @@
+  1+4
+.loop:
+  1.loop
+.main:
+  6a01 ; set VA = 1
+  6e00 ; paddle yloc VE = 0
+.draw_paddle:
+  00e0 ; cls
+  6001 ; paddle xloc V0 = 0
+  a.paddle
+  d0e6 ; draw paddle at (V0, VE)
+  fd0a ; get key input -> VD
+  3d01 ; (skip if VD = 1)
+  1+4  ; (skip next)
+  1.move_paddle_up ; if VD = 1
+  3d04 ; (skip if VD = 4)
+  1+4  ; (skip next)
+  1.move_paddle_dn ; if VD = 4
+  1.draw_paddle
+.move_paddle_up:
+  8ea5 ; VE = VE - VA(1)
+  1.draw_paddle
+.move_paddle_dn:
+  8ea4 ; VE = VE + VA(1)
+  1.draw_paddle
+.paddle:
+  '80
+  '80
+  '80
+  '80
+  '80
+  '80
