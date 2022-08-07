@@ -10,6 +10,7 @@ Name  | Description
 my_first_program.ch8 | writes example text to screen
 move_paddle.ch8 | move paddle up and down using 1 and 4 keys
 keypress_test.ch8 | writes character to display corresponding to keypress
+solo_pong_v1.ch8 | basic 1-player pong game (use 1/4 key to move paddle)
 
 ## Tools (in /tools)
 `.txt` files can be converted to `.ch8` files using the `tools/write_ch8.py` tool.
