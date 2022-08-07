@@ -1,0 +1,127 @@
+  1.start
+
+.loop:  ; for debugging
+  f00a
+  1.loop
+
+.start:
+  ; initialize variables
+  ;  pos_x, pos_y = 0x12, randint(0x1f)
+  ;  dir_x, dir_y = 0x1, randint(0x1)
+  ;  paddle_x, paddle_y = 0x2, 0x8
+  ;  up_key, dn_key = 0x1, 0x4
+  6012  ; ball x loc
+  ;6112 ; ball y loc
+  c11f  ; ball random y loc
+  6201  ; ball x direction (0 = left, 1 = right)
+  ;6300 ; ball y direction (0 = down, 1 = up, 2 = steady)
+  c301  ; ball random y direction
+  6402  ; paddle x starting loc
+  6508  ; paddle y starting loc
+  6801  ; up key = 1
+  6904  ; dn key = 4
+
+.game_loop:
+  ; detecting key presses (key)
+  ;  if pressed(up_key): paddle_y -= 1
+  ;  elif pressed(dn_key): paddle_y += 1
+  e8a1
+  1.key_up
+  e9a1
+  1.key_dn
+  1.end_key
+.key_up:
+  75ff ; V5 - 1
+  1.end_key
+.key_dn:
+  7501
+.end_key:
+
+  ; adjust ball x loc (ball_x)
+  ;  if dir_x == 0: loc_x -= 1
+  ;  else: loc_x += 1
+  4200
+  1.ball_x_left   ; V2 = 0 (left)
+  1.ball_x_right
+.ball_x_left:
+  70ff
+  1.end_ball_x
+.ball_x_right:
+  7001
+.end_ball_x:
+
+  ; adjust ball y loc (ball_y)
+  ;  if dir_y == 0: loc_y += 1
+  ;  elif dir_y == 1: loc_y -= 1
+  4300
+  1.ball_y_dn
+  4301
+  1.ball_y_up
+  1.end_ball_y
+.ball_y_dn:
+  7101
+  1.end_ball_y
+.ball_y_up:
+  71ff
+.end_ball_y:
+
+  ; reverse x direction if sidewall hit (wall_x)
+  ;  if loc_x == 0: dir_x = 1
+  ;  elif loc_x == 0x3f: dir_x = 0
+  4000
+  1.wall_x_left
+  403f
+  1.wall_x_right
+  1.end_wall_x
+.wall_x_left:
+  6201
+  1.end_wall_x
+.wall_x_right:
+  6200
+  1.end_wall_x
+.end_wall_x:
+
+  ; reverse y direction if floor/ceil hit (wall_y)
+  ;  if loc_y == 0: dir_y = 0
+  ;  elif loc_y == 0x1f: dir_y = 1
+  4100
+  1.wall_y_ceil
+  411f
+  1.wall_y_floor
+  1.end_wall_y
+.wall_y_ceil:
+  6300
+  1.end_wall_y
+.wall_y_floor:
+  6301
+.end_wall_y:
+
+  ; draw screen
+  ;  cls()
+  ;  draw(.ball, loc_x, loc_y, 1)
+  ;  draw(.paddle, paddle_x, paddle_y, 6)
+  00e0    ; clear screen
+  a.ball
+  d011
+  a.paddle
+  d456
+
+  ; check collision (coll)
+  ;  if collision_bit == 1: dir_x, dir_y = 1, rand(0x1)
+  4f01
+  1.coll
+  1.game_loop
+.coll:
+  6201   ; turn ball right
+  c301   ; random ball y direction
+  1.game_loop
+
+.ball:
+  '80
+.paddle:
+  '80
+  '80
+  '80
+  '80
+  '80
+  '80
